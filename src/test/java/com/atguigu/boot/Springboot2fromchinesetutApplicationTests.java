@@ -1,4 +1,4 @@
-package com.example.springboot2fromchinesetut;
+package com.atguigu.boot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
