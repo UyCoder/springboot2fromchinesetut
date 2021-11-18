@@ -50,7 +50,7 @@ public class MainApplication {
 //        System.out.println("组件："+(tom01 == tom02));
 //
 //
-//        //4、com.atguigu.boot.config.MyConfig$$EnhancerBySpringCGLIB$$51f1e1ca@1654a892
+        //4、com.atguigu.boot.config.MyConfig$$EnhancerBySpringCGLIB$$51f1e1ca@1654a892
 //        MyConfig bean = run.getBean(MyConfig.class);
 //        System.out.println(bean);
 //
