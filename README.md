@@ -30,72 +30,72 @@ https://www.youtube.com/playlist?list=PLmOn9nNkQxJGV9UUZkBgIfqsfPXfzftDV
 
 
 ##Configuration files must be configured like below:
-### 1. Dependencies on pom.xml file 
+### 1. Dependencies on pom.xml file
 ```xml
     <dependencies>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>5.3.16</version>
-        </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>
+        <version>5.3.16</version>
+    </dependency>
 
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>5.3.16</version>
-        </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-jdbc</artifactId>
+        <version>5.3.16</version>
+    </dependency>
 
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aspects</artifactId>
-            <version>5.3.15</version>
-        </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-aspects</artifactId>
+        <version>5.3.15</version>
+    </dependency>
 
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>3.4.2</version>
-        </dependency>
+    <dependency>
+        <groupId>org.mybatis</groupId>
+        <artifactId>mybatis</artifactId>
+        <version>3.4.2</version>
+    </dependency>
 
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-spring</artifactId>
-            <version>1.3.1</version>
-        </dependency>
+    <dependency>
+        <groupId>org.mybatis</groupId>
+        <artifactId>mybatis-spring</artifactId>
+        <version>1.3.1</version>
+    </dependency>
 
-        <dependency>
-            <groupId>c3p0</groupId>
-            <artifactId>c3p0</artifactId>
-            <version>0.9.0.2</version>
-        </dependency>
+    <dependency>
+        <groupId>c3p0</groupId>
+        <artifactId>c3p0</artifactId>
+        <version>0.9.0.2</version>
+    </dependency>
 
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.25</version>
-        </dependency>
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.25</version>
+    </dependency>
 
-        <dependency>
-            <groupId>jstl</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
-        </dependency>
+    <dependency>
+        <groupId>jstl</groupId>
+        <artifactId>jstl</artifactId>
+        <version>1.2</version>
+    </dependency>
 
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
-            <scope>provided</scope>
-        </dependency>
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>servlet-api</artifactId>
+        <version>2.5</version>
+        <scope>provided</scope>
+    </dependency>
 
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+        <scope>test</scope>
+    </dependency>
 
-    </dependencies>
+</dependencies>
 ```
 
 ### 2. web.xml file configuration:
@@ -105,7 +105,7 @@ https://www.youtube.com/playlist?list=PLmOn9nNkQxJGV9UUZkBgIfqsfPXfzftDV
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-    
+
     <!--spring configuration-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
@@ -120,7 +120,7 @@ https://www.youtube.com/playlist?list=PLmOn9nNkQxJGV9UUZkBgIfqsfPXfzftDV
         <servlet-name>dispatcherServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
-            <param-name>contextConfigLocation</param-name> 
+            <param-name>contextConfigLocation</param-name>
             <param-value></param-value>
         </init-param>
     </servlet>
@@ -128,7 +128,7 @@ https://www.youtube.com/playlist?list=PLmOn9nNkQxJGV9UUZkBgIfqsfPXfzftDV
         <servlet-name>dispatcherServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-    
+
     <!-- filer-->
     <filter>
         <filter-name>CharacterEncodingFilter</filter-name>
@@ -150,8 +150,8 @@ https://www.youtube.com/playlist?list=PLmOn9nNkQxJGV9UUZkBgIfqsfPXfzftDV
         <filter-name>CharacterEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    
-        <!--Rest-url-->
+
+    <!--Rest-url-->
     <filter>
         <filter-name>HiddenHttpMethodFilter</filter-name>
         <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
@@ -192,24 +192,62 @@ https://www.youtube.com/playlist?list=PLmOn9nNkQxJGV9UUZkBgIfqsfPXfzftDV
 
 </beans>
 ```
-### 4. configuration of spring.  dispatcherServlet-servlet.xml:
+### 4. configuration of spring.  applicationContext.xml:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
 
-<!--    very important configuration-->
+
+    <context:component-scan base-package="dev.ahmed">
+        <context:exclude-filter type="annotation" expression=""/>
+    </context:component-scan>
+
+    <!--    Spring coniguaration important part: 1.datasource 2.mybatis 3.transacion-->
+
+    <!-- 1.=====================================================  very important configuration-->
     <context:property-placeholder location="classpath:dbconfig.properties"></context:property-placeholder>
-
     <bean id="pooledDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
         <property name="driverClass" value="${jdbc.driverClass}"></property>
         <property name="user" value="${jdbc.user}"></property>
         <property name="password" value="${jdbc.password}"></property>
     </bean>
-    
+
+    <!--  2.=====================================================   Mybatis configuration-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+        <property name="dataSource" ref="pooledDataSource"></property>
+        <property name="mapperLocations" value="classpath:mapper/*.xml"></property>
+    </bean>
+
+    <!--    mybatis API ioc -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- scan all files in dao package-->
+        <property name ="basePackage" value="dev.ahmed.crud.dao"></property>
+    </bean>
+
+    <!--  3.=====================================================   transaction control configuration-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name ="dataSource" value="pooledDataSource"></property>
+    </bean>
+
+    <!--    aop configurartion-->
+    <aop:config>
+        <aop:pointcut expression="execution(* dev.ahmed.crud.service..*(..))" id="txPoint"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPoint"/>
+    </aop:config>
+    <tx:advisor id="txAdvice">
+        <tx:attributes>
+            <tx:method name="*"/>
+            <tx:method name="get*" read-only="true"/>
+        </tx:attributes>
+    </tx:advisor>
+
+
 </beans>
 ```
 
