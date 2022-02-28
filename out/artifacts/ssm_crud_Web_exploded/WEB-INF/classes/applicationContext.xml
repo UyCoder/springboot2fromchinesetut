@@ -12,7 +12,7 @@
 
     <!--    Spring coniguaration important part: 1.datasource 2.mybatis 3.transacion-->
 
-    <!-- 1.=====================================================  very important configuration-->
+<!-- 1.=====================================================  very important configuration-->
     <context:property-placeholder location="classpath:dbconfig.properties"></context:property-placeholder>
     <bean id="pooledDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
@@ -21,25 +21,25 @@
         <property name="password" value="${jdbc.password}"></property>
     </bean>
 
-    <!--  2.=====================================================   Mybatis configuration-->
+<!--  2.=====================================================   Mybatis configuration-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="configLocation" value="classpath:mybatis-config.xml"></property>
         <property name="dataSource" ref="pooledDataSource"></property>
         <property name="mapperLocations" value="classpath:mapper/*.xml"></property>
     </bean>
 
-    <!--    mybatis API ioc -->
+<!--    mybatis API ioc -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- scan all files in dao package-->
-        <property name="basePackage" value="dev.ahmed.crud.dao"></property>
+        <property name ="basePackage" value="dev.ahmed.crud.dao"></property>
     </bean>
 
-    <!--  3.=====================================================   transaction control configuration-->
+<!--  3.=====================================================   transaction control configuration-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" value="pooledDataSource"></property>
+        <property name ="dataSource" value="pooledDataSource"></property>
     </bean>
 
-    <!--    aop configurartion-->
+<!--    aop configurartion-->
     <aop:config>
         <aop:pointcut expression="execution(* dev.ahmed.crud.service..*(..))" id="txPoint"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPoint"/>

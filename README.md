@@ -34,6 +34,12 @@ https://www.youtube.com/playlist?list=PLmOn9nNkQxJGV9UUZkBgIfqsfPXfzftDV
 ```xml
     <dependencies>
     <dependency>
+        <groupId>org.mybatis.generator</groupId>
+        <artifactId>mybatis-generator-core</artifactId>
+        <version>1.3.5</version>
+    </dependency>
+    
+    <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-webmvc</artifactId>
         <version>5.3.16</version>
